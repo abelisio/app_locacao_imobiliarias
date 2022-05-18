@@ -1,25 +1,13 @@
 <?php
-require_once 'classes/product.class.php';
-require_once 'classes/funcoes.class.php';
-require_once 'classes/conexao.php';
+require_once 'classes/cliente.class.php';
 
-$objFpd = new product();
-
-
-$conexao = novaConexao();
+$objCliente = new cliente();
 
 $id = $_GET['id'];
 
 if($_GET['id']) {
-    $sql = "SELECT *  FROM produtos WHERE id = ?";
-    $stmt = $conexao->prepare($sql);
-    $stmt->bind_param("i", $_GET['id']);
-    if($stmt->execute()) {
-        $resultado = $stmt->get_result();
-        if($resultado->num_rows > 0) {
-            $dados = $resultado->fetch_assoc();
-        }
-    }
+  
+  $objCliente = new cliente($id);
 }
 
 

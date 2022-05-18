@@ -22,7 +22,7 @@ class cliente {
         return $this->$atributo;
     }
 
-    public function querySelect(){
+    public function querySelect($id){
         try{
             $cst = $this->con->conectar()->prepare("SELECT `idlocatario`, `nome_locatario`, `email_locatario`, `telefone_locatario` FROM `locatario`;");
             $cst->execute();

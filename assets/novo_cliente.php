@@ -1,4 +1,4 @@
-<?php
+ <?php
 require_once 'classes/cliente.class.php';
 
 $objCliente = new cliente();
@@ -59,7 +59,7 @@ $objCliente = new cliente();
                             <span class="data-grid-cell-content"><?= $rst['telefone_locatario'] ?></span>
                           </td>
                           <td class="data-grid-td">
-                            <a href="editProduct.php?id=<?= $rst['idlocatario'] ?>" </a>
+                            <a href="editCliente.php?id=<?= $rst['idlocatario'] ?>" </a>
                               <button type="button" class="btn btn-primary">Editar</button>
                           </td>
                           <td class="data-grid-td">
