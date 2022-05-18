@@ -26,7 +26,7 @@ $objCliente = new cliente();
       <main class="content">
         <h2 class="title new-item">Editar clientes(locatário)</h2>
         <div class="col-lg-12" style="text-align: right;">
-          <a href="clientes.php" class="action back"> <button type="button" class="btn btn-warning"">Voltar</button> </a>
+          <a href="clientes.php" class="action back"> <button type="button" class="btn btn-secondary">Voltar</button> </a>
     </div>
     <div class=" container">
               <div class="row">
@@ -76,7 +76,7 @@ $objCliente = new cliente();
               </div>
             </div>
             <div class="col-lg-12" style="text-align: right;">
-              <a href="clientes.php" class="action back"> <button type="button" class="btn btn-warning"">Voltar</button> </a>
+              <a href="clientes.php" class="action back"> <button type="button" class="btn btn-secondary">Voltar</button> </a>
 </div>
     </main>
         </div>

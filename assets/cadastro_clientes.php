@@ -47,10 +47,10 @@ if(isset($_POST['btAtualiza'])){
         <input type="text" class="form-control" id="telefone_locatario" name="telefone_locatario" placeholder="Telefone locatario"  class="input-text" />
       </div>
       <div class="actions-form">
-        <a href="novo_cliente.php" class="btn btn-primary">Voltar</a>
-          <input class="btn btn-success" type="submit" name="btAtualiza" value="Cadastrar Cliente">
+        <a href="clientes.php" class="btn btn-secondary">Voltar</a>
+          <input  class="btn btn-primary" type="submit" name="btAtualiza" value="Cadastrar Cliente">
       </div>
-      
+     
     </form>
   </main>
         </div>

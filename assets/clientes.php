@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <link href="https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/css/estilo.css">
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/estilo.css">
     <title></title>
 </head>
 <body>
@@ -40,7 +41,11 @@
                     </ul>
                 </div>
             </nav>
+            <div class="col-lg-12" style="text-align: right;">
+          <a href="index.php" class="action back"> <button type="button" class="btn btn-secondary">Voltar</button> </a>
+    </div>
         </div>
+        
     </main>
     
     <footer class="rodape">
