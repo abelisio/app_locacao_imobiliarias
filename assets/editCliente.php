@@ -1,121 +1,94 @@
 <?php
 require_once 'classes/cliente.class.php';
+require_once 'classes/conexao.php';
 
 $objCliente = new cliente();
 
-$id = $_GET['id'];
+$conexao = novaConexao();
+
 
 if($_GET['id']) {
-  
-  $objCliente = new cliente($id);
+  $sql = "SELECT *  FROM locatario WHERE idlocatario = ?";
+  $stmt = $conexao->prepare($sql);
+  $stmt->bind_param("i", $_GET['id']);
+  if($stmt->execute()) {
+      $resultado = $stmt->get_result();
+      if($resultado->num_rows > 0) {
+          $dados = $resultado->fetch_assoc();
+      }
+  }
 }
 
 
 if(isset($_POST['btAtualiza'])){
-    if($objFpd->queryUpdate($_POST) == 'ok'){
-        header('location: products.php');
-    }else{
-        echo '<script type="text/javascript">alert("Erro em alterar");</script>';
-    }
+  if($objCliente->queryUpdate($_POST) == 'ok'){
+      header('location: clientes.php');
+  }else{
+      echo '<script type="text/javascript">alert("Erro em alterar");</script>';
+  }
 }
+
 
 ?>
 
-<!doctype html>
-<html ⚡>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-  <title>Webjump | Backend Test | Add Product</title>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/estilo.css">
+  <title></title>
+</head>
 
-<link  rel="stylesheet" type="text/css"  media="all" href="css/style.css" />
-<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,800" rel="stylesheet">
-<meta name="viewport" content="width=device-width,minimum-scale=1">
-<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
-<script async src="https://cdn.ampproject.org/v0.js"></script>
-<script async custom-element="amp-fit-text" src="https://cdn.ampproject.org/v0/amp-fit-text-0.1.js"></script>
-<script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script></head>
-  <!-- Header -->
-<amp-sidebar id="sidebar" class="sample-sidebar" layout="nodisplay" side="left">
-  <div class="close-menu">
-    <a on="tap:sidebar.toggle">
-      <img src="images/bt-close.png" alt="Close Menu" width="24" height="24" />
-    </a>
-  </div>
-  <a href="dashboard.php"><img src="images/menu-go-jumpers.png" alt="Welcome" width="200" height="43" /></a>
-  <div>
-    <ul>
-      <li><a href="categories.php" class="link-menu">Categorias</a></li>
-      <li><a href="products.php" class="link-menu">Produtos</a></li>
-    </ul>
-  </div>
-</amp-sidebar>
-<header>
-  <div class="go-menu">
-    <a on="tap:sidebar.toggle">☰</a>
-    <a href="dashboard.php" class="link-logo"><img src="images/go-logo.png" alt="Welcome" width="69" height="430" /></a>
-  </div>
-  <div class="right-box">
-    <span class="go-title">Administration Panel</span>
-  </div>    
-</header>  
-<!-- Header -->
-  <!-- Main Content -->
-  <main class="content">
-    <h1 class="title new-item">New Product</h1>
+<body>
 
-    <form action=""  method="post">
-    <div class="input-field">
-  
-      
-        <label for="id" class="label">ID</label>
-         <input type="text" id="id" name="id" class="input-text" value="<?= $dados['id'] ?>"/>
-        </div>
-        <div class="input-field">
-        <label for="sku" class="label">Product SKU</label>
-        <input type="text" id="sku" name="sku" class="input-text" value="<?= $dados['sku'] ?>" />
-      </div>
-      <div class="input-field">
-        <label for="name" class="label">Product Name</label>
-        <input type="text" id="productname" name="productname" class="input-text" value="<?= $dados['productname'] ?>"  />
-      </div>
-      <div class="input-field">
-        <label for="price" class="label">Price</label>
-        <input type="text" id="price" name ="price" class="input-text" value="<?= $dados['price'] ?>"  />
-      </div>
-      <div class="input-field">
-        <label for="quantity" class="label">Quantity</label>
-        <input type="text" id="quantity" name="quantity" class="input-text" value="<?= $dados['quantity'] ?>"  />
-      </div>
-      <div class="input-field">
-        <label for="category" class="label">Categories</label>
-        <textarea id="category" name="category" class="input-text">
-        <?= $dados['category'] ?>
-      </textarea>
+  <header class="cabecalho_clientes">
+    <h1>Módulo Clientes</h1>
+  </header>
+  <main class="principal">
+    <div class="conteudo">
+
+      <main class="content">
+        <h2 class="title new-item">Editar clientes(locatário)</h2>
+        <div class="col-lg-12" style="text-align: right;">
+          <a href="novo_cliente.php" class="action back"> <button type="button" class="btn btn-secondary">Voltar</button> </a>
+    </div>
+
+<main class="content">
+  <form action="" method="post">
+  <div class="mb-3">
+        <label for="productname" class="label">ID</label>
+        <input type="text" class="form-control" id="idlocatario" name="idlocatario" value="<?= $dados['idlocatario'] ?>" class="input-text" />
       </div>
 
-      <div class="input-field">
-        <label for="description" class="label">Description</label>
-        <textarea id="description" name="description" class="input-text">
-        <?= $dados['description'] ?>
-      </textarea>
+      <div class="mb-3">
+        <label for="productname" class="label">Nome</label>
+        <input type="text" class="form-control" id="nome_locatario" name="nome_locatario" value="<?= $dados['nome_locatario'] ?>" class="input-text" />
       </div>
-      <div class="actions-form">
-        <a href="products.php" class="action back">Back</a>
-          <input class="btn-submit btn-action" type="submit" name="btAtualiza" value="Save">
+
+      <div class="mb-3">
+        <label for="productname" class="label">E-mail</label>
+        <input type="text" class="form-control" id="email_locatario" name="email_locatario" value="<?= $dados['email_locatario'] ?>" class="input-text" />
       </div>
-      
-    </form>
+
+      <div class="mb-3">
+        <label for="productname" class="label">Telefone</label>
+        <input type="text" class="form-control" id="telefone_locatario" name="telefone_locatario" value="<?= $dados['telefone_locatario'] ?>" class="input-text" />
+      </div>
+    
+    <div class="actions-form">
+          <input  class="btn btn-primary" type="submit" name="btAtualiza" value="Atualizar">
+      </div>
+  </form>
   </main>
-  <!-- Main Content -->
+        </div>
+    </main>
+    
+    <footer class="rodape">
+        Adriano S. Belísio © <?= date('Y'); ?>
+    </footer>
+</body>
 
-  <!-- Footer -->
-<footer>
-	<div class="footer-image">
-	  <img src="images/go-jumpers.png" width="119" height="26" alt="Go Jumpers" />
-	</div>
-	<div class="email-content">
-	  <span>go@jumpers.com.br</span>
-	</div>
-</footer>
- <!-- Footer --></body>
 </html>

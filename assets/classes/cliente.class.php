@@ -10,6 +10,7 @@ class cliente {
     private $nome_locatario;
     private $email_locatario;
     private $telefone_locatario;
+    
 
     public function __construct(){
         $this->con   = new Conexao();
@@ -22,9 +23,9 @@ class cliente {
         return $this->$atributo;
     }
 
-    public function querySelect($id){
+    public function querySelect(){
         try{
-            $cst = $this->con->conectar()->prepare("SELECT `idlocatario`, `nome_locatario`, `email_locatario`, `telefone_locatario` FROM `locatario`;");
+            $cst = $this->con->conectar()->prepare("SELECT `idlocatario`, `nome_locatario`, `email_locatario`, `telefone_locatario` FROM `locatario` ");
             $cst->execute();
             return $cst->fetchAll();
         } catch (PDOException $ex) {
@@ -53,21 +54,15 @@ class cliente {
 
     public function queryUpdate($dados){
         try{
-            $this->id          = $dados['id'];
-            $this->productname = $dados['productname'];
-            $this->sku         = $dados['sku'];
-            $this->description = $dados['description'];
-            $this->quantity    = $dados['quantity'];
-            $this->price       = $dados['price'];
-            $this->category    = $dados['category'];
-            $cst = $this->con->conectar()->prepare("UPDATE `produtos` SET  `productname` = :productname, `sku` = :sku , `description` = :description , `quantity` = :quantity , `price` = :price , `category` = :category  WHERE `id` = :id;");
-            $cst->bindParam(":id", $this->id, PDO::PARAM_INT);
-            $cst->bindParam(":productname", $this->productname, PDO::PARAM_STR);
-            $cst->bindParam(":sku", $this->sku, PDO::PARAM_STR);
-            $cst->bindParam(":description", $this->description, PDO::PARAM_STR);
-            $cst->bindParam(":quantity", $this->quantity, PDO::PARAM_STR);
-            $cst->bindParam(":price", $this->price, PDO::PARAM_STR);
-            $cst->bindParam(":category", $this->category, PDO::PARAM_STR);
+            $this->idlocatario        = $dados['idlocatario'];
+            $this->nome_locatario     = $dados['nome_locatario'];
+            $this->email_locatario    = $dados['email_locatario'];
+            $this->telefone_locatario = $dados['telefone_locatario'];
+            $cst = $this->con->conectar()->prepare("UPDATE `locatario` SET  `nome_locatario` = :nome_locatario, `email_locatario` = :email_locatario , `telefone_locatario` = :telefone_locatario WHERE `idlocatario` = :idlocatario;");
+            $cst->bindParam(":idlocatario", $this->idlocatario, PDO::PARAM_STR);
+            $cst->bindParam(":nome_locatario", $this->nome_locatario, PDO::PARAM_STR);
+            $cst->bindParam(":email_locatario", $this->email_locatario, PDO::PARAM_STR);
+            $cst->bindParam(":telefone_locatario", $this->telefone_locatario, PDO::PARAM_STR);
             if($cst->execute()){
                 return 'ok';
             }else{
