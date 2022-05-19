@@ -14,7 +14,7 @@
     <main class="principal">
         <div class="conteudo">
             <nav class="modulos">
-                <div class="modulo verde">
+                <div class="modulo roxo">
                     <h3>Cadastro de  Clientes</h3>
                     <ul>
                         <li><a href="cadastro_clientes.php">Cadastro de Clientes</a></li>
@@ -27,20 +27,7 @@
                     </ul>
                 </div>
             </nav>
-            <nav class="modulos">
-                <div class="modulo roxo">
-                    <h3>Módulo Imóveis</h3>
-                    <ul>
-                        <li><a href="exercicio.php?dir=teste&file=teste">Exercício A</a></li>
-                    </ul>
-                </div>
-                <div class="modulo laranja">
-                    <h3>Módulo Contratos</h3>
-                    <ul>
-                        <li><a href="exercicio.php?dir=teste&file=teste">Exercício A</a></li>
-                    </ul>
-                </div>
-            </nav>
+            
             <div class="col-lg-12" style="text-align: right;">
           <a href="index.php" class="action back"> <button type="button" class="btn btn-secondary">Voltar</button> </a>
     </div>

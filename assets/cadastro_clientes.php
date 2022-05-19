@@ -6,7 +6,7 @@ $objCliente = new cliente();
 
 if(isset($_POST['btAtualiza'])){
     if($objCliente->queryInsert($_POST) == 'ok'){
-        header('location:novo_cliente.php');
+        header('location:listarCliente.php');
     }else{
         echo '<script type="text/javascript">alert("Erro em cadastrar");</script>';
     }

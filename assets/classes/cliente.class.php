@@ -75,9 +75,9 @@ class cliente {
 
     public function queryDelete($dado){
         try{
-            $this->idFuncionario = $this->objfc->base64($dado, 2);
-            $cst = $this->con->conectar()->prepare("DELETE FROM `funcionario` WHERE `idFuncionario` = :idFunc;");
-            $cst->bindParam(":idFunc", $this->idFuncionario, PDO::PARAM_INT);
+            $this->idlocatario = $dado['idlocatario'];
+            $cst = $this->con->conectar()->prepare("DELETE FROM `locatario` WHERE `idlocatario` = :idlocatario;");
+            $cst->bindParam(":idlocatario", $this->idlocatario, PDO::PARAM_STR);
             if($cst->execute()){
                 return 'ok';
             }else{

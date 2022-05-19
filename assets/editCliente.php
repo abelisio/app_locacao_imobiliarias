@@ -7,10 +7,10 @@ $objCliente = new cliente();
 $conexao = novaConexao();
 
 
-if($_GET['id']) {
+if($_GET['idlocatario']) {
   $sql = "SELECT *  FROM locatario WHERE idlocatario = ?";
   $stmt = $conexao->prepare($sql);
-  $stmt->bind_param("i", $_GET['id']);
+  $stmt->bind_param("i", $_GET['idlocatario']);
   if($stmt->execute()) {
       $resultado = $stmt->get_result();
       if($resultado->num_rows > 0) {
@@ -53,7 +53,7 @@ if(isset($_POST['btAtualiza'])){
       <main class="content">
         <h2 class="title new-item">Editar clientes(locatário)</h2>
         <div class="col-lg-12" style="text-align: right;">
-          <a href="novo_cliente.php" class="action back"> <button type="button" class="btn btn-secondary">Voltar</button> </a>
+          <a href="listarCliente.php" class="action back"> <button type="button" class="btn btn-secondary">Voltar</button> </a>
     </div>
 
 <main class="content">
