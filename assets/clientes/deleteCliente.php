@@ -1,7 +1,7 @@
 <?php
-require_once 'classes/conexao.php';
-require_once 'classes/cliente.class.php';
-require_once 'classes/conexao.class.php';
+require_once '../classes/conexao.php';
+require_once '../classes/cliente.class.php';
+require_once '../classes/conexao.class.php';
 
 $objCliente = new cliente();
 

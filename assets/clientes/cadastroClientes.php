@@ -1,6 +1,6 @@
 <?php
-require_once 'classes/cliente.class.php';
-require_once 'classes/conexao.class.php';
+require_once '../classes/cliente.class.php';
+require_once '../classes/conexao.class.php';
 
 $objCliente = new cliente();
 
@@ -19,9 +19,31 @@ if(isset($_POST['btAtualiza'])){
 <head>
     <meta charset="UTF-8">
     <link href="https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../assets/css/estilo.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/estilo.css">
     <title></title>
+    <style>
+            @media (max-width: 769px) {
+                .cvmobile-bt-big > span {
+                    font-size: 12px !important;
+                }
+            }
+            .cvmobile-topo-plus {
+                background-color: transparent !important;
+            }
+            .logoIncial {
+                text-align: center;
+                margin: 80px 10px;
+            }
+            @media (max-width: 769px) {
+                .logoIncial {
+                    margin: 50px 25px 25px 25px;
+                }
+                .logoIncial img {
+                    width:80%;
+                }
+            }
+        </style>
 </head>
 <body>
     <header class="cabecalho_clientes">

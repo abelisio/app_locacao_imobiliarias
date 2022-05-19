@@ -14,8 +14,21 @@ body {
 
 .cabecalho {
     grid-area: cabecalho;
-    background-color: #36173d;
+    background-color: rgb(75, 72, 248);
     color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 5px;
+    height: 80px;
+    box-shadow: 0px 4px 9px -2px rgba(0, 0, 0, 0.75);
+}
+
+.cabecalho_clientes {
+    grid-area: cabecalho;
+    background-color: rgb(236, 226, 82);
+    color: rgb(14, 0, 0);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -25,10 +38,10 @@ body {
     box-shadow: 0px 4px 9px -2px rgba(0, 0, 0, 0.75);
 }
 
-.cabecalho_clientes {
+.cabecalho_proprietarios {
     grid-area: cabecalho;
-    background-color: #4CAF50;
-    color: white;
+    background-color: rgb(24, 136, 71);
+    color: rgb(243, 235, 235);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -68,13 +81,15 @@ body {
 
 .rodape {
     grid-area: rodape;
-    background-color: #fff;
+    background-color: rgb(231, 226, 214);
     display: flex;
     justify-content: flex-end;
     align-items: center;
     font-size: 1.2rem;
-    padding-right: 20px;
+    padding-right: 10px;
+    height: 60px;
     color: #444;
+    bottom: 0;
 }
 
 .modulos {
