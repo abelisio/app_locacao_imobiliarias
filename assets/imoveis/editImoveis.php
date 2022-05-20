@@ -1,28 +1,28 @@
 <?php
-require_once '../classes/proprietario.class.php';
+require_once '../classes/imoveis.class.php';
 require_once '../classes/conexao.php';
 
-$objPro = new proprietario();
+$objImov = new imoveis();
 
 $conexao = novaConexao();
 
 
-if($_GET['idlocador']) {
-  $sql = "SELECT *  FROM locador WHERE idlocador = ?";
-  $stmt = $conexao->prepare($sql);
-  $stmt->bind_param("i", $_GET['idlocador']);
-  if($stmt->execute()) {
-      $resultado = $stmt->get_result();
-      if($resultado->num_rows > 0) {
-          $dados = $resultado->fetch_assoc();
-      }
-  }
+if($_GET['idimovel']) {
+    $sql = "SELECT *  FROM imoveis WHERE idimovel = ?";
+    $stmt = $conexao->prepare($sql);
+    $stmt->bind_param("i", $_GET['idimovel']);
+    if($stmt->execute()) {
+        $resultado = $stmt->get_result();
+        if($resultado->num_rows > 0) {
+            $dados = $resultado->fetch_assoc();
+        }
+    }
 }
 
 
 if(isset($_POST['btAtualiza'])){
-  if($objPro->queryUpdate($_POST) == 'ok'){
-      header('location: proprietarios.php');
+  if($objImov->queryUpdate($_POST) == 'ok'){
+      header('location: imoveis.php');
   }else{
       echo '<script type="text/javascript">alert("Erro: Dados Não cadastrados");</script>';
   }
@@ -66,7 +66,7 @@ if(isset($_POST['btAtualiza'])){
 
 <body>
 
-  <header class="cabecalho_proprietarios">
+  <header class="cabecalho_imoveis">
     <h1>Módulo Proprietários</h1>
   </header>
   <main class="principal">
@@ -75,33 +75,29 @@ if(isset($_POST['btAtualiza'])){
       <main class="content">
         <h2 class="title new-item">Editar Proprietário</h2>
         <div class="col-lg-12" style="text-align: right;">
-          <a href="listarProprietarios.php" class="action back"> <button type="button" class="btn btn-secondary">Voltar</button> </a>
+          <a href="listarImoveis.php" class="action back"> <button type="button" class="btn btn-secondary">Voltar</button> </a>
     </div>
 
 <main class="content">
   <form action="" method="post">
   <div class="mb-3">
         <label for="proprietarios" class="label">ID</label>
-        <input type="text" class="form-control" id="idlocador" name="idlocador" value="<?= $dados['idlocador'] ?>" class="input-text" />
+        <input type="text" class="form-control" id="idimovel" name="idimovel" value="<?= $dados['idimovel'] ?>" class="input-text" />
       </div>
 
       <div class="mb-3">
-        <label for="proprietarios" class="label">Nome</label>
-        <input type="text" class="form-control" id="nome_locador" name="nome_locador" value="<?= $dados['nome_locador'] ?>" class="input-text" />
+        <label for="proprietarios" class="label">Código do  Imóvel</label>
+        <input type="text" class="form-control" id="codimovel" name="codimovel" value="<?= $dados['codimovel'] ?>" class="input-text" />
       </div>
 
       <div class="mb-3">
-        <label for="proprietarios" class="label">E-mail</label>
-        <input type="text" class="form-control" id="email_locador" name="email_locador" value="<?= $dados['email_locador'] ?>" class="input-text" />
+        <label for="proprietarios" class="label">Endereço</label>
+        <input type="text" class="form-control" id="endereco" name="endereco" value="<?= $dados['endereco'] ?>" class="input-text" />
       </div>
 
       <div class="mb-3">
-        <label for="proprietarios" class="label">Telefone</label>
-        <input type="text" class="form-control" id="telefone_locador" name="telefone_locador" value="<?= $dados['telefone_locador'] ?>" class="input-text" />
-      </div>
-      <div class="mb-3">
-          <label for="proprietarios" class="label">Data repasse</label>
-          <input type="text" class="form-control" id="dia_repasse_locador" name="dia_repasse_locador" value="<?= $dados['dia_repasse_locador'] ?>" class="input-text" />
+        <label for="proprietarios" class="label">Proprietário</label>
+        <input type="text" class="form-control" id="locador" name="locador" value="<?= $dados['locador'] ?>" class="input-text" />
       </div>
     <div class="actions-form">
           <input  class="btn btn-primary" type="submit" name="btAtualiza" value="Atualizar">

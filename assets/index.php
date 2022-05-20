@@ -55,16 +55,17 @@
                     </div>
                 </div>
                 <div class="col ">
-                    <div class="p-lg-5 btn btn-primary d-grid gap-2 text-white text-center shadow p-3 mb-5 rounded a href=" # " ">
-                        <h3>Módulo Imóveis</h3>
+                    <div class="p-lg-5 btn btn-primary d-grid gap-2 text-white text-center shadow p-3 mb-5 rounded">
+                        <a href="imoveis/imoveis.php" class="text-decoration-none text-white" >
+                        <h3>Módulo Imóveis</h3></a>
                     </div>
                 </div>
                 <div class="col ">
-                    <div class="p-lg-5 btn btn-secondary d-grid gap-2 text-white text-center shadow p-3 mb-5 rounded a href=" # " ">
-                        <h3>Módulo Contratos</h3>
+                    <div class="p-lg-5 btn btn-secondary d-grid gap-2 text-white text-center shadow p-3 mb-5 rounded">
+                        <a href="contratos/contratos.php" class="text-decoration-none text-white" >
+                        <h3>Módulo Contratos</h3></a>
                     </div>
                 </div>
-
             </div>
         </div>
 
