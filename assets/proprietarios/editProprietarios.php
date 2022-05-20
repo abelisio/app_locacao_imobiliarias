@@ -1,16 +1,16 @@
 <?php
-require_once '../classes/cliente.class.php';
+require_once '../classes/proprietario.class.php';
 require_once '../classes/conexao.php';
 
-$objCliente = new cliente();
+$objPro = new proprietario();
 
 $conexao = novaConexao();
 
 
-if($_GET['idlocatario']) {
-  $sql = "SELECT *  FROM locatario WHERE idlocatario = ?";
+if($_GET['idlocador']) {
+  $sql = "SELECT *  FROM locador WHERE idlocador = ?";
   $stmt = $conexao->prepare($sql);
-  $stmt->bind_param("i", $_GET['idlocatario']);
+  $stmt->bind_param("i", $_GET['idlocador']);
   if($stmt->execute()) {
       $resultado = $stmt->get_result();
       if($resultado->num_rows > 0) {
@@ -21,10 +21,10 @@ if($_GET['idlocatario']) {
 
 
 if(isset($_POST['btAtualiza'])){
-  if($objCliente->queryUpdate($_POST) == 'ok'){
-      header('location: clientes.php');
+  if($objPro->queryUpdate($_POST) == 'ok'){
+      header('location: proprietarios.php');
   }else{
-      echo '<script type="text/javascript">alert("Erro em alterar");</script>';
+      echo '<script type="text/javascript">alert("Erro: Dados Não cadastrados");</script>';
   }
 }
 
@@ -67,39 +67,42 @@ if(isset($_POST['btAtualiza'])){
 <body>
 
   <header class="cabecalho_clientes">
-    <h1>Módulo Clientes</h1>
+    <h1>Módulo Proprietários</h1>
   </header>
   <main class="principal">
     <div class="conteudo">
 
       <main class="content">
-        <h2 class="title new-item">Editar clientes(locatário)</h2>
+        <h2 class="title new-item">Editar Proprietário</h2>
         <div class="col-lg-12" style="text-align: right;">
-          <a href="listarCliente.php" class="action back"> <button type="button" class="btn btn-secondary">Voltar</button> </a>
+          <a href="listarProprietarios.php" class="action back"> <button type="button" class="btn btn-secondary">Voltar</button> </a>
     </div>
 
 <main class="content">
   <form action="" method="post">
   <div class="mb-3">
-        <label for="productname" class="label">ID</label>
-        <input type="text" class="form-control" id="idlocatario" name="idlocatario" value="<?= $dados['idlocatario'] ?>" class="input-text" />
+        <label for="proprietarios" class="label">ID</label>
+        <input type="text" class="form-control" id="idlocador" name="idlocador" value="<?= $dados['idlocador'] ?>" class="input-text" />
       </div>
 
       <div class="mb-3">
-        <label for="productname" class="label">Nome</label>
-        <input type="text" class="form-control" id="nome_locatario" name="nome_locatario" value="<?= $dados['nome_locatario'] ?>" class="input-text" />
+        <label for="proprietarios" class="label">Nome</label>
+        <input type="text" class="form-control" id="nome_locador" name="nome_locador" value="<?= $dados['nome_locador'] ?>" class="input-text" />
       </div>
 
       <div class="mb-3">
-        <label for="productname" class="label">E-mail</label>
-        <input type="text" class="form-control" id="email_locatario" name="email_locatario" value="<?= $dados['email_locatario'] ?>" class="input-text" />
+        <label for="proprietarios" class="label">E-mail</label>
+        <input type="text" class="form-control" id="email_locador" name="email_locador" value="<?= $dados['email_locador'] ?>" class="input-text" />
       </div>
 
       <div class="mb-3">
-        <label for="productname" class="label">Telefone</label>
-        <input type="text" class="form-control" id="telefone_locatario" name="telefone_locatario" value="<?= $dados['telefone_locatario'] ?>" class="input-text" />
+        <label for="proprietarios" class="label">Telefone</label>
+        <input type="text" class="form-control" id="telefone_locador" name="telefone_locador" value="<?= $dados['telefone_locador'] ?>" class="input-text" />
       </div>
-    
+      <div class="mb-3">
+          <label for="proprietarios" class="label">Data repasse</label>
+          <input type="text" class="form-control" id="dia_repasse_locador" name="dia_repasse_locador" value="<?= $dados['dia_repasse_locador'] ?>" class="input-text" />
+      </div>
     <div class="actions-form">
           <input  class="btn btn-primary" type="submit" name="btAtualiza" value="Atualizar">
       </div>
@@ -108,9 +111,6 @@ if(isset($_POST['btAtualiza'])){
         </div>
     </main>
     
-    <footer class="rodape">
-        Adriano S. Belísio © <?= date('Y'); ?>
-    </footer>
 </body>
 
 </html>

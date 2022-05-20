@@ -24,7 +24,7 @@ if(isset($_POST['btAtualiza'])){
   if($objCliente->queryUpdate($_POST) == 'ok'){
       header('location: clientes.php');
   }else{
-      echo '<script type="text/javascript">alert("Erro em alterar");</script>';
+      echo '<script type="text/javascript">alert("Erro: Dados Não cadastrados");</script>';
   }
 }
 
@@ -73,7 +73,7 @@ if(isset($_POST['btAtualiza'])){
     <div class="conteudo">
 
       <main class="content">
-        <h2 class="title new-item">Editar clientes(locatário)</h2>
+        <h2 class="title new-item">Editar clientes</h2>
         <div class="col-lg-12" style="text-align: right;">
           <a href="listarCliente.php" class="action back"> <button type="button" class="btn btn-secondary">Voltar</button> </a>
     </div>

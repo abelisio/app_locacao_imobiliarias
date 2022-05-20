@@ -51,13 +51,13 @@
                 <div class="modulo vermelho">
                     <h3>Cadastro de  Proprietarios</h3>
                     <ul>
-                        <li><a href="cadastro_clientes.php">Cadastro de Proprietarios</a></li>
+                        <li><a href="cadastroProprietarios.php">Cadastro de Proprietarios</a></li>
                     </ul>
                 </div>
                 <div class="modulo laranja">
                     <h3>Listar Proprietarios</h3>
                     <ul>
-                        <li><a href="listarCliente.php">Listar de Proprietários</a></li>
+                        <li><a href="listarProprietarios.php">Listar de Proprietários</a></li>
                     </ul>
                 </div>
             </nav>

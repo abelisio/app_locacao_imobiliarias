@@ -1,13 +1,13 @@
  <?php
-  require_once '../classes/cliente.class.php';
+  require_once '../classes/proprietario.class.php';
 
-  $objCliente = new cliente();
+ $objPro = new proprietario();
 
   if (isset($_POST['deletar'])) {
-    if ($objCliente->queryDelete($_GET) == 'ok') {
-      header('location: novo_cliente.php');
+    if ($objPro->queryDelete($_GET) == 'ok') {
+      header('location: cadastroProprietarios.php ');
     } else {
-      echo '<script type="text/javascript">alert("Erro em Apagar");</script>';
+      echo '<script type="text/javascript">alert("Erro: Dados Não cadastrados");</script>';
     }
   }
 
@@ -50,15 +50,15 @@
  <body>
 
    <header class="cabecalho_clientes">
-     <h1>Módulo Clientes</h1>
+     <h1>Módulo Proprietários</h1>
    </header>
    <main class="principal">
      <div class="conteudo">
 
        <main class="content">
-         <h2 class="title new-item">Editar clientes(locatário)</h2>
+         <h2 class="title new-item">Proprietários</h2>
          <div class="col-lg-12" style="text-align: right;">
-           <a href="clientes.php" class="action back"> <button type="button" class="btn btn-secondary">Voltar</button> </a>
+           <a href="proprietarios.php" class="action back"> <button type="button" class="btn btn-secondary">Voltar</button> </a>
          </div>
          <div class=" container">
            <div class="row">
@@ -77,33 +77,38 @@
                    <th class="data-grid-th">
                      <span class="data-grid-cell-content">Telefone</span>
                    </th>
+                   <th class="data-grid-th">
+                       <span class="data-grid-cell-content">Data do repasse</span>
+                   </th>
                    </tr>
                  </thead>
                  <tbody>
-                   <?php foreach ($objCliente->querySelect() as $dado) { ?>
+                   <?php foreach ($objPro->querySelect() as $dado) { ?>
                      <tr class="data-row">
                      <td class="data-grid-td">
-                         <span class="data-grid-cell-content" id="idlocatario" name="idlocatario"><?= $dado['idlocatario'] ?></span>
+                         <span class="data-grid-cell-content" id="idlocador" name="idlocador"><?= $dado['idlocador'] ?></span>
                        </td>
                        <td class="data-grid-td">
-                         <span class="data-grid-cell-content" id="nome_locatario" name="nome_locatario"><?= $dado['nome_locatario'] ?></span>
-                       </td>
-
-                       <td class="data-grid-td">
-                         <span class="data-grid-cell-content" id="email_locatario" name="email_locatario"><?= $dado['email_locatario'] ?></span>
+                         <span class="data-grid-cell-content" id="nome_locador" name="nome_locador"><?= $dado['nome_locador'] ?></span>
                        </td>
 
                        <td class="data-grid-td">
-                         <span class="data-grid-cell-content" id="telefone_locatario" name="telefone_locatario"><?= $dado['telefone_locatario'] ?></span>
+                         <span class="data-grid-cell-content" id="email_locador" name="email_locador"><?= $dado['email_locador'] ?></span>
                        </td>
 
                        <td class="data-grid-td">
-                         <a href="editCliente.php?idlocatario=<?= $dado['idlocatario'] ?>" </a>
-                           <button type="button" class="btn btn-primary" name="btAtualiza" id="idlocatario">Editar</button>
+                         <span class="data-grid-cell-content" id="telefone_locador" name="telefone_locador"><?= $dado['telefone_locador'] ?></span>
+                       </td>
+                         <td class="data-grid-td">
+                             <span class="data-grid-cell-content" id="dia_repasse_locador" name="dia_repasse_locador"><?= $dado['dia_repasse_locador'] ?></span>
+                         </td>
+                       <td class="data-grid-td">
+                         <a href="editProprietarios.php?idlocador=<?= $dado['idlocador'] ?>" </a>
+                           <button type="button" class="btn btn-primary" name="btAtualiza" id="idlocador">Editar</button>
                        </td>
 
                        <td class="data-grid-td">
-                         <a href="deleteCliente.php?idlocatario=<?= $dado['idlocatario'] ?>" </a>
+                         <a href="deleteProprietarios.php?idlocador=<?= $dado['idlocador'] ?>" </a>
                            <button type="submit" value="deletar" class="btn btn-danger" name="deletar" >Deletar</button>
                        </td>
 
@@ -116,7 +121,7 @@
            </div>
          </div>
          <div class="col-lg-12" style="text-align: right;">
-           <a href="clientes.php" class="action back"> <button type="button" class="btn btn-secondary">Voltar</button> </a>
+           <a href="proprietarios.php" class="action back"> <button type="button" class="btn btn-secondary">Voltar</button> </a>
          </div>
        </main>
      </div>

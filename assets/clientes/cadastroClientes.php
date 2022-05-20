@@ -53,7 +53,7 @@ if(isset($_POST['btAtualiza'])){
         <div class="conteudo">
 
   <main class="content">
-    <h2 class="title new-item">Cadastrar novo cliente(locatário)</h2>
+    <h2 class="title new-item">Cadastrar novo cliente</h2>
 
     <form action=""  method="post">
       <div class="mb-3">
