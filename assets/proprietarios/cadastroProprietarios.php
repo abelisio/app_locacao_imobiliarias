@@ -79,7 +79,7 @@ if(isset($_POST['btAtualiza'])){
                         <input type="text" class="form-control" id="telefone_locador" name="telefone_locador" placeholder="Telefone proprietário" class="input-text" />
                     </div>
                     <div class="mb-3">
-                        <label for="quantity" class="label">Data do repoasse</label>
+                        <label for="quantity" class="label">Data do repasse</label>
                         <input type="text" class="form-control" id="dia_repasse_locador" name="dia_repasse_locador" placeholder="data do repasse">
                         <div class="input-group-addon">
                             <span class="glyphicon glyphicon-th"></span>

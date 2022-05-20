@@ -142,6 +142,8 @@ body {
     list-style: none;
 }
 
+.modulo>span {text-align: center;
+}
 .modulo>ul>li {
     padding: 7px;
     font-size: 1.2rem;
