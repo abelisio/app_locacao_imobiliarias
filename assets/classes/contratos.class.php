@@ -17,6 +17,7 @@ class contratos {
     private $valor_aluguel;
     private $valor_cond;
     private $valor_iptu;
+    private $status;
     
 
     public function __construct(){
@@ -32,7 +33,7 @@ class contratos {
 
     public function querySelect(){
         try{
-            $cst = $this->con->conectar()->prepare("SELECT `idcontrato`, `codimovel`, `proprietario`, `taxa_adm`, `cliente` , `dataini`, `datafim`, `valor_aluguel`, `valor_cond`, `valor_iptu` FROM `contratos` ");
+            $cst = $this->con->conectar()->prepare("SELECT `idcontrato`, `codimovel`, `proprietario`, `taxa_adm`, `cliente` , `dataini`, `datafim`, `valor_aluguel`, `valor_cond`, `valor_iptu`, `status` FROM `contratos` ");
             $cst->execute();
             return $cst->fetchAll();
         } catch (PDOException $ex) {
@@ -52,7 +53,8 @@ class contratos {
             $this->valor_aluguel = $dados['valor_aluguel'];
             $this->valor_cond = $dados['valor_cond'];
             $this->valor_iptu = $dados['valor_iptu'];
-            $cst = $this->con->conectar()->prepare("INSERT INTO `contratos` (`codimovel`, `proprietario`, `taxa_adm`, `cliente` , `dataini` , `datafim` , `valor_aluguel` , `valor_cond` , `valor_iptu`) VALUES (:codimovel, :proprietario, :taxa_adm, :cliente , :dataini , :datafim , :valor_aluguel , :valor_cond , :valor_iptu);");
+            $this->status = $dados['status'];
+            $cst = $this->con->conectar()->prepare("INSERT INTO `contratos` (`codimovel`, `proprietario`, `taxa_adm`, `cliente` , `dataini` , `datafim` , `valor_aluguel` , `valor_cond` , `valor_iptu` , `status`) VALUES (:codimovel, :proprietario, :taxa_adm, :cliente , :dataini , :datafim , :valor_aluguel , :valor_cond , :valor_iptu , :status);");
             $cst->bindParam(":codimovel", $this->codimovel, PDO::PARAM_STR);
             $cst->bindParam(":proprietario", $this->proprietario, PDO::PARAM_STR);
             $cst->bindParam(":taxa_adm", $this->taxa_adm, PDO::PARAM_STR);
@@ -62,6 +64,7 @@ class contratos {
             $cst->bindParam(":valor_aluguel", $this->valor_aluguel, PDO::PARAM_STR);
             $cst->bindParam(":valor_cond", $this->valor_cond, PDO::PARAM_STR);
             $cst->bindParam(":valor_iptu", $this->valor_iptu, PDO::PARAM_STR);
+            $cst->bindParam(":status", $this->status, PDO::PARAM_STR);
             if($cst->execute()){
                 return 'ok';
             }else{
