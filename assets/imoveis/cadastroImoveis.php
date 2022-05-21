@@ -2,16 +2,18 @@
 require_once '../classes/imoveis.class.php';
 require_once '../classes/conexao.class.php';
 
+ 
+
 $objImov = new imoveis();
 
 if(isset($_POST['btAtualiza'])){
+
     if($objImov->queryInsert($_POST) == 'ok'){
         header('location:listarImoveis.php');
     }else{
         echo '<script type="text/javascript">alert("Erro: Dados Não cadastrados");</script>';
     }
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -64,12 +66,24 @@ if(isset($_POST['btAtualiza'])){
 
             <main class="content">
                 <h2 class="title new-item">Cadastrar Imóveis</h2>
-
                 <form action="" method="post">
                     <div class="mb-3">
                         <label for="productname" class="label">Código do Imóvel</label>
-                        <input type="text" class="form-control" id="codimovel" name="codimovel" placeholder="Código do Imóvel" class="input-text" />
-                    </div>
+                        <select class="form-select" id="codimovel" name="codimovel">
+                            <option selected>Tipo do imóvel</option>
+                            <option value="<?php echo  $coIm = 'CAS-'. substr(uniqid(rand(), true),-8);?>">CASA</option>
+                            <option value="<?php echo  $coIm = 'APT-'. substr(uniqid(rand(), true),-8);?>">APARTAMENTO</option>
+                            <option value="<?php echo  $coIm = 'SIT-'. substr(uniqid(rand(), true),-8);?>">SÍTIO</option>
+                            <option value="<?php echo  $coIm = 'GRAN-'. substr(uniqid(rand(), true),-8);?>">GRANJA</option>
+                            <option value="<?php echo  $coIm = 'FAZ-'. substr(uniqid(rand(), true),-8);?>">FAZENDA</option>
+                            <option value="<?php echo  $coIm = 'KIT-'. substr(uniqid(rand(), true),-8);?>">KITNET</option>
+                            <option value="<?php echo  $coIm = 'FLA-'. substr(uniqid(rand(), true),-8);?>">FLAT</option>
+                            <option value="<?php echo  $coIm = 'OUT-'. substr(uniqid(rand(), true),-8);?>">OUTROS</option>
+
+                        </select>
+                    
+                </div>
+                
                     <div class="mb-3">
                         <label for="quantity" class="label">Nome do Prorprietário</label>
                         <input type="text" class="form-control" id="locador" name="locador" placeholder="Nome do Prorprietário do Imóvel" class="input-text" />

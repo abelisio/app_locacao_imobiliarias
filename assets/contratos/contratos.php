@@ -49,6 +49,20 @@
                     </ul>
                 </div>
             </nav>
+            <nav class="modulos">
+                <div class="modulo verde">
+                    <h3>Listar Mensalidades</h3>
+                    <ul>
+                        <li><a href="listarMensalidades.php">Listar Mensalidades</a></li>
+                    </ul>
+                </div>
+                <div class="modulo azul">
+                    <h3>Listar Contratos</h3>
+                    <ul>
+                        <li><a href="listarContratos.php">Listar Contratos</a></li>
+                    </ul>
+                </div>
+            </nav>
             
             <div class="col-lg-12" style="text-align: right;">
           <a href="../index.php" class="action back"> <button type="button" class="btn btn-secondary">Voltar</button> </a>

@@ -133,10 +133,20 @@ if (isset($_POST['btAtualiza'])) {
                             <input type="text" class="form-control" id="valor_iptu" name="valor_iptu"
                                    placeholder="R$ " class="input-text" class="input-text" data-symbol="R$ " data-thousands="." data-decimal=","/>
                         </div>
+
+                        <div class="col">
+                            <label for="price" class="label">IPTU</label>
+                            <select class="form-select" aria-label="Default select example">
+                                <<?php foreach ($objImov->querySelect() as $dado) {?>
+                                    <option><?=$dado['codimovel'] ?></option>
+                                <?php }  ?>
+                            </select>
+                        </div>
                         <div class="actions-form">
                             <a href="contratos.php" class="btn btn-secondary">Voltar</a>
                             <input class="btn btn-primary" type="submit" name="btAtualiza" value="Cadastrar contratos">
                         </div>
+                    </div>
                     </div>
                 </div>
             </form>

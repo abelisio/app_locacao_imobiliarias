@@ -1,8 +1,7 @@
 <?php
-
 include_once "conexao.class.php ";
 
-
+ 
 class imoveis {
 
     private $con;
@@ -34,6 +33,7 @@ class imoveis {
     }
 
     public function queryInsert($dados){
+      
          try{
             $this->codimovel = $dados['codimovel'];
             $this->endereco    = $dados['endereco'];
