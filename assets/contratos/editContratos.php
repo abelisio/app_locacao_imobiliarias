@@ -1,7 +1,23 @@
 <?php
 require_once '../classes/contratos.class.php';
+require_once '../classes/conexao.php';
+
+
+$conexao = novaConexao();
 
 $objCont = new contratos();
+
+if($_GET['idcontrato']) {
+    $sql = "SELECT *  FROM contratos WHERE idcontrato = ?";
+    $stmt = $conexao->prepare($sql);
+    $stmt->bind_param("i", $_GET['idcontrato']);
+    if($stmt->execute()) {
+        $resultado = $stmt->get_result();
+        if($resultado->num_rows > 0) {
+            $dados = $resultado->fetch_assoc();
+        }
+    }
+  }
 
 if (isset($_POST['btAtualiza'])) {
     if ($objCont->queryUpdate($_POST) == 'ok') {
@@ -10,15 +26,6 @@ if (isset($_POST['btAtualiza'])) {
         echo '<script type="text/javascript">alert("Erro: Dados Não cadastrados");</script>';
     }
 }
-
-if(isset($_POST['btAtualiza'])){
-            if($objFcn->querySeleciona($_POST) == 'ok'){
-                header('location: contratos.php');
-            }else{
-                echo '<script type="text/javascript">alert("Erro: Dados Não cadastrados");</script>';
-            }
-    }
-
 
 
 ?>
@@ -76,7 +83,6 @@ if(isset($_POST['btAtualiza'])){
 
                 <form action="" method="post">
                 <main class="content">
-                        <?php foreach ($objCont->querySelect() as $dados) { ?>
                         <div class="row g-3">
                             <div class="col">
                                     <label for="proprietarios" class="label">ID</label>
@@ -129,9 +135,9 @@ if(isset($_POST['btAtualiza'])){
                             </div>
 
                             <div class="col">
-                            <label for="price" class="label">Status do Contrato</label>
-                            <select class="form-select" id="status" name="status">
-                                <option selected>Selecione o status do contrato</option>
+                            <label for="price" class="label">estado_contrato do Contrato</label>
+                            <select class="form-select" id="estado_contrato" name="estado_contrato">
+                                <option selected>Selecione o estado_contrato do contrato</option>
                                 <option value="S">Ativo</option>
                                 <option value="N">Inativo</option>
                             </select>
@@ -141,7 +147,6 @@ if(isset($_POST['btAtualiza'])){
                     <div class="actions-form">
                         <input class="btn btn-primary" type="submit" name="btAtualiza" value="Atualizar">
                     </div>
-                    <?php }  ?>
                 </main>
                     </form>
         </div>
