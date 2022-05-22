@@ -93,6 +93,9 @@
                    <th class="data-grid-th">
                        <span class="data-grid-cell-content">Valor do IPTU</span>
                    </th>
+                   <th class="data-grid-th">
+                       <span class="data-grid-cell-content">Contrato Ativo</span>
+                   </th>
                    </tr>
                  </thead>
                  <tbody>
@@ -126,16 +129,13 @@
                          <td class="data-grid-td">
                              <span class="data-grid-cell-content" id="valor_iptu" name="valor_iptu"><?= $dado['valor_iptu'] ?></span>
                          </td>
-
+                         <td class="data-grid-td">
+                             <span class="data-grid-cell-content" id="status" name="status"><?= $dado['status'] ?></span>
+                         </td>
                        <td class="data-grid-td">
                          <a href="editContratos.php?idcontrato=<?= $dado['idcontrato'] ?>" </a>
                            <button type="button" class="btn btn-primary" name="btAtualiza" id="idimovel">Editar</button>
                        </td>
-
-
-
-
-
                        <td class="data-grid-td">
                          <a href="deleteContratos.php?idcontrato=<?= $dado['idcontrato'] ?>" </a>
                            <button type="submit" value="deletar" class="btn btn-danger" name="deletar" >Deletar</button>

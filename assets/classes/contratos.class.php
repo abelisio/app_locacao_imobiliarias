@@ -33,7 +33,7 @@ class contratos {
 
     public function querySelect(){
         try{
-            $cst = $this->con->conectar()->prepare("SELECT `idcontrato`, `codimovel`, `proprietario`, `taxa_adm`, `cliente` , `dataini`, `datafim`, `valor_aluguel`, `valor_cond`, `valor_iptu`, `status` FROM `contratos` ");
+            $cst = $this->con->conectar()->prepare("SELECT `idcontrato`, `codimovel`, `proprietario`, `taxa_adm`, `cliente` , `dataini`, `datafim`, `valor_aluguel`, `valor_cond`, `valor_iptu`, `status` FROM `contratos` LIMIT 0,1");
             $cst->execute();
             return $cst->fetchAll();
         } catch (PDOException $ex) {

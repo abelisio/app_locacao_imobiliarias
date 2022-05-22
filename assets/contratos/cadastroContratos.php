@@ -85,6 +85,9 @@ if (isset($_POST['btAtualiza'])) {
                             </div>
                         </div>
                     </div>
+
+                    <div class="row g-3">
+                    
                     <div class="col">
                         <label for="price" class="label">Proprietáro</label>
                         <input type="text" class="form-control" id="proprietario" name="proprietario" placeholder="Proprietáro" class="input-text" />
@@ -93,7 +96,9 @@ if (isset($_POST['btAtualiza'])) {
                         <label for="price" class="label">Locatário</label>
                         <input type="text" class="form-control" id="cliente" name="cliente" placeholder="Locatário (Cliente)" class="input-text" />
                     </div>
+                    </div>
                     <div class="row g-3">
+
                         <div class="col">
                             <label for="quantity" class="label">Data início</label>
                             <input type="text" class="form-control" id="dataini" name="dataini" placeholder="Data de início do contrato">
