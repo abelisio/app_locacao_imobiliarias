@@ -35,6 +35,15 @@ class proprietario {
         }
     }
 
+    public function querySelecionar(){
+        try{
+            $cst = $this->con->conectar()->prepare("SELECT `idlocador`, `nome_locador`, `email_locador`, `telefone_locador`, `dia_repasse_locador` FROM `locador` LIMIT 0,1 ");
+            $cst->execute();
+            return $cst->fetchAll();
+        } catch (PDOException $ex) {
+            return 'erro '.$ex->getMessage();
+        }
+    }
     public function queryInsert($dados){
       
          try{

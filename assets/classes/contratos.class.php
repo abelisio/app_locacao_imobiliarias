@@ -45,12 +45,13 @@ class contratos {
         try{
             $cst = $this->con->conectar()->prepare("SELECT `idcontrato`, `codimovel`, `proprietario`, `taxa_adm`, `cliente` , `dataini`, `datafim`, `valor_aluguel`, `valor_cond`, `valor_iptu`, `estado_contrato` FROM `contratos` LIMIT 0,1");
             $cst->execute();
-            return $cst->fetchAll();
+            return $cst->fetch();
         } catch (PDOException $ex) {
             return 'erro '.$ex->getMessage();
         }
     }
     public function queryInsert($dados){
+
 
          try{
             $this->codimovel     = $dados['codimovel'];
