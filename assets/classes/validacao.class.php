@@ -1,7 +1,7 @@
 <?php
 include_once "contratos.class.php";
 include_once "funcoes.class.php";
-include_once "conexao.php";
+
 
 if (isset($_POST)) {
 

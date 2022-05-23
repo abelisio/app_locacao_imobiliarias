@@ -25,9 +25,7 @@
 
 $calculate      = new Funcoes();
 $mediaValores   = $calculate->calcular($dados);
-echo $mediaValores;
 
-exit();
   ?>
 
  <!DOCTYPE html>
@@ -86,20 +84,12 @@ exit();
                      <span class="data-grid-cell-content"  >Cód. Imóvel</span>
                    </th>
                    <th class="data-grid-th">
-                     <span class="data-grid-cell-content" >Proprietário</span>
+                       <span class="data-grid-cell-content">Proprietário</span>
                    </th>
                    <th class="data-grid-th">
-                     <span class="data-grid-cell-content">Tx de Adiminitração (%)</span>
+                     <span class="data-grid-cell-content">Tx de Adiminitração</span>
                    </th>
-                   <th class="data-grid-th">
-                       <span class="data-grid-cell-content">Cliente</span>
-                   </th>
-                   <th class="data-grid-th">
-                       <span class="data-grid-cell-content">Data Início</span>
-                   </th>
-                   <th class="data-grid-th">
-                       <span class="data-grid-cell-content">Data Fim</span>
-                   </th>
+
                    <th class="data-grid-th">
                        <span class="data-grid-cell-content">Valor do aluguel</span>
                    </th>
@@ -108,9 +98,6 @@ exit();
                    </th>
                    <th class="data-grid-th">
                        <span class="data-grid-cell-content">Valor do IPTU</span>
-                   </th>
-                   <th class="data-grid-th">
-                       <span class="data-grid-cell-content">Contrato Ativo</span>
                    </th>
                    </tr>
                  </thead>
@@ -128,15 +115,6 @@ exit();
                          <span class="data-grid-cell-content" id="taxa_adm" name="taxa_adm"><?= $dado['taxa_adm'] ?></span>
                        </td>
                          <td class="data-grid-td">
-                             <span class="data-grid-cell-content" id="cliente" name="cliente"><?= $dado['cliente'] ?></span>
-                         </td>
-                         <td class="data-grid-td">
-                             <span class="data-grid-cell-content" id="dataini" name="dataini"><?= $dado['dataini'] ?></span>
-                         </td>
-                         <td class="data-grid-td">
-                             <span class="data-grid-cell-content" id="datafim" name="datafim"><?= $dado['datafim'] ?></span>
-                         </td>
-                         <td class="data-grid-td">
                              <span class="data-grid-cell-content" id="valor_aluguel" name="valor_aluguel"><?= $dado['valor_aluguel'] ?></span>
                          </td>
                          <td class="data-grid-td">
@@ -145,9 +123,7 @@ exit();
                          <td class="data-grid-td">
                              <span class="data-grid-cell-content" id="valor_iptu" name="valor_iptu"><?= $dado['valor_iptu'] ?></span>
                          </td>
-                         <td class="data-grid-td">
-                             <span class="data-grid-cell-content" id="estado_contrato" name="estado_contrato"><?= $dado['estado_contrato'] ?></span>
-                         </td>
+
                        <td class="data-grid-td">
                          <a href="editContratos.php?idcontrato=<?= $dado['idcontrato'] ?>" </a>
                            <button type="button" class="btn btn-primary" name="btAtualiza" id="idcontrato">Editar</button>
