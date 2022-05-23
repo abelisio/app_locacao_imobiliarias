@@ -15,17 +15,7 @@
       echo '<script type="text/javascript">alert("Erro: Dados Não cadastrados");</script>';
     }
   }
-/*
-    $sql = "SELECT *  FROM contratos ";
-    $stmt = $conexao->prepare($sql);
-    $stmt->execute();
-        $resultado = $stmt->get_result();
-            $dados = $resultado->fetch_assoc();
 
-
-$calculate      = new Funcoes();
-$mediaValores   = $calculate->calcular($dados);
-*/
   ?>
 
  <!DOCTYPE html>
@@ -110,18 +100,17 @@ $mediaValores   = $calculate->calcular($dados);
                        <td class="data-grid-td">
                          <span class="data-grid-cell-content" id="proprietario" name="proprietario"><?= $dado['proprietario'] ?></span>
                        </td>
-
                        <td class="data-grid-td">
-                         <span class="data-grid-cell-content" id="taxa_adm" name="taxa_adm"><?= $dado['taxa_adm'] ?></span>
+                         <span class="data-grid-cell-content" id="taxa_adm" name="taxa_adm"><?=  number_format($dado['taxa_adm'],2,",","."); ?></span>
                        </td>
                          <td class="data-grid-td">
-                             <span class="data-grid-cell-content" id="valor_aluguel" name="valor_aluguel"><?= $dado['valor_aluguel'] ?></span>
+                             <span class="data-grid-cell-content" id="valor_aluguel" name="valor_aluguel"><?= number_format($dado['valor_aluguel'],2,",","."); ?></span>
                          </td>
                          <td class="data-grid-td">
-                             <span class="data-grid-cell-content" id="valor_cond" name="valor_cond"><?= $dado['valor_cond'] ?></span>
+                             <span class="data-grid-cell-content" id="valor_cond" name="valor_cond"><?= number_format($dado['valor_cond'],2,",","."); ?></span>
                          </td>
                          <td class="data-grid-td">
-                             <span class="data-grid-cell-content" id="valor_iptu" name="valor_iptu"><?= $dado['valor_iptu'] ?></span>
+                             <span class="data-grid-cell-content" id="valor_iptu" name="valor_iptu"><?= number_format($dado['valor_iptu'],2,",","."); ?></span>
                          </td>
 
                        <td class="data-grid-td">
