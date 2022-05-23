@@ -7,7 +7,7 @@ O projeto utilizou:
 PHP 7.4;
 Mysql 5.7
 Apache 2.4
-Ambiente Windos 11
+Ambiente Windows 11
 
 #Para configurar  o banco de dados
 
