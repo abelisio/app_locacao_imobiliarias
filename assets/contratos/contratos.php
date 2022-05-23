@@ -57,9 +57,9 @@
                     </ul>
                 </div>
                 <div class="modulo azul">
-                    <h3>Listar Contratos</h3>
+                    <h3>Extrato Adminitração</h3>
                     <ul>
-                        <li><a href="listarContratos.php">Listar Contratos</a></li>
+                        <li><a href="ExtratoContratos.php">Extrato Adminitração</a></li>
                     </ul>
                 </div>
             </nav>

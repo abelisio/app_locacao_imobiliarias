@@ -17,14 +17,16 @@ if (isset($_POST)) {
     $valor_cond = $ObjTaxa->validarMoney($_POST['valor_cond']);
     $valor_iptu = $ObjTaxa->validarMoney($_POST['valor_iptu']);
     $estado_contrato = $ObjTaxa->validarMoney($_POST['estado_contrato']);
+    $repasse = ($valor_aluguel + $valor_iptu)- $taxa_adm;
+    $mensalidade = ($valor_aluguel + $valor_iptu + $valor_cond);
 
     require_once "conexao.php";
     $conexao = novaConexao();
 
     $sql = ("INSERT INTO contratos (codimovel, proprietario, taxa_adm, cliente , dataini , datafim 
-        , valor_aluguel , valor_cond , valor_iptu , estado_contrato) 
+        , valor_aluguel , valor_cond , valor_iptu , estado_contrato, repasse, mensalidade) 
         VALUES ('$codimovel', '$proprietario', '$taxa_adm', '$cliente', '$dataini', '$datafim','$valor_aluguel'
-    ,'$valor_cond','$valor_iptu','$estado_contrato')");
+    ,'$valor_cond','$valor_iptu','$estado_contrato', '$repasse', '$mensalidade')");
 
 if (!mysqli_query($conexao, $sql)) {
     die('Erro: ' . mysqli_error($conexao));

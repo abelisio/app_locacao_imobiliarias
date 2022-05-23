@@ -56,7 +56,7 @@
      <div class="conteudo">
 
        <main class="content">
-         <h2 class="title new-item">Contratos</h2>
+         <h2 class="title new-item">Extratos do Contratos</h2>
          <div class="col-lg-12" style="text-align: right;">
            <a href="contratos.php" class="action back"> <button type="button" class="btn btn-secondary">Voltar</button> </a>
          </div>
@@ -109,7 +109,7 @@
                        </td>
 
                        <td class="data-grid-td">
-                         <span class="data-grid-cell-content" id="taxa_adm" name="taxa_adm"><?= number_format($dado['taxa_adm'],2,",","."); ?></span>
+                         <span class="data-grid-cell-content" id="taxa_adm" name="taxa_adm"><?= $dado['taxa_adm'] ?></span>
                        </td>
                          <td class="data-grid-td">
                              <span class="data-grid-cell-content" id="cliente" name="cliente"><?= $dado['cliente'] ?></span>
@@ -121,13 +121,13 @@
                              <span class="data-grid-cell-content" id="datafim" name="datafim"><?= $dado['datafim'] ?></span>
                          </td>
                          <td class="data-grid-td">
-                             <span class="data-grid-cell-content" id="valor_aluguel" name="valor_aluguel"><?= number_format($dado['valor_aluguel'],2,",","."); ?></span>
+                             <span class="data-grid-cell-content" id="valor_aluguel" name="valor_aluguel"><?= $dado['valor_aluguel'] ?></span>
                          </td>
                          <td class="data-grid-td">
-                             <span class="data-grid-cell-content" id="valor_cond" name="valor_cond"><?= number_format($dado['valor_cond'],2,",","."); ?></span>
+                             <span class="data-grid-cell-content" id="valor_cond" name="valor_cond"><?= $dado['valor_cond'] ?></span>
                          </td>
                          <td class="data-grid-td">
-                             <span class="data-grid-cell-content" id="valor_iptu" name="valor_iptu"><?= number_format($dado['valor_iptu'],2,",","."); ?></span>
+                             <span class="data-grid-cell-content" id="valor_iptu" name="valor_iptu"><?= $dado['valor_iptu'] ?></span>
                          </td>
                          <td class="data-grid-td">
                              <span class="data-grid-cell-content" id="estado_contrato" name="estado_contrato"><?= $dado['estado_contrato'] ?></span>

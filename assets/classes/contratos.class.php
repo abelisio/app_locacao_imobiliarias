@@ -52,7 +52,6 @@ class contratos {
     }
     public function queryInsert($dados){
 
-
          try{
             $this->codimovel     = $dados['codimovel'];
             $this->proprietario    = $dados['proprietario'];
