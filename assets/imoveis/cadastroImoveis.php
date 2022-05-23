@@ -1,9 +1,10 @@
 <?php
 require_once '../classes/imoveis.class.php';
 require_once '../classes/conexao.class.php';
+require_once '../classes/proprietario.class.php';
 
- 
 
+$objPro = new proprietario();
 $objImov = new imoveis();
 
 if(isset($_POST['btAtualiza'])){
@@ -85,8 +86,12 @@ if(isset($_POST['btAtualiza'])){
                 </div>
                 
                     <div class="mb-3">
-                        <label for="quantity" class="label">Nome do Prorprietário</label>
-                        <input type="text" class="form-control" id="locador" name="locador" placeholder="Nome do Prorprietário do Imóvel" class="input-text" />
+                            <label for="price" class="label">Proprietário</label>
+                            <select class="form-select" id="locador" name="locador">
+                                <?php foreach ($objPro->querySelect() as $dado) { ?>
+                                    <option><?= $dado['nome_locador'] ?></option>
+                                <?php }  ?>
+                            </select>
                     </div>
                     <div class="mb-3">
                         <label for="price" class="label">Endereço</label>

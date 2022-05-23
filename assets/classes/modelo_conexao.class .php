@@ -9,10 +9,10 @@ class conexao
 
     public function __construct()
     {
-        $this->servidor = "127.0.0.1:3307";
-        $this->banco    = "locacao";
-        $this->usuario  = "root";
-        $this->senha    = "root";
+        $this->servidor = "";
+        $this->banco    = "";
+        $this->usuario  = "";
+        $this->senha    = "";
     }
 
     public function conectar()

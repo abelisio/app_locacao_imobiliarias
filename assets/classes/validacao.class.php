@@ -9,8 +9,15 @@ if (isset($_POST)) {
 
     $codimovel = $ObjTaxa->validarMoney($_POST['codimovel']);
     $proprietario = $ObjTaxa->validarMoney($_POST['proprietario']);
-    $taxa_adm = $ObjTaxa->validarMoney($_POST['taxa_adm']);
+    if(isset($_POST['taxa_adm'])) {
+        $taxa_adm = $ObjTaxa->validarMoney($_POST['taxa_adm']);
+    }
+    else{
+    $taxa_adm = 0;
+}
+
     $cliente = $ObjTaxa->validarMoney($_POST['cliente']);
+
     $dataini = $ObjTaxa->validarMoney($_POST['dataini']);
     $datafim = $ObjTaxa->validarMoney($_POST['datafim']);
     $valor_aluguel = $ObjTaxa->validarMoney($_POST['valor_aluguel']);
@@ -38,4 +45,6 @@ header("Location: ../contratos/contratos.php ");
 
 die();
 
+}else{
+        echo '<script type="text/javascript">alert("Erro ao Preencher o fomulário ");</script>';
 }
