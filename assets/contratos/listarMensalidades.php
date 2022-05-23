@@ -15,7 +15,7 @@
       echo '<script type="text/javascript">alert("Erro: Dados Não cadastrados");</script>';
     }
   }
-
+/*
     $sql = "SELECT *  FROM contratos ";
     $stmt = $conexao->prepare($sql);
     $stmt->execute();
@@ -25,7 +25,7 @@
 
 $calculate      = new Funcoes();
 $mediaValores   = $calculate->calcular($dados);
-
+*/
   ?>
 
  <!DOCTYPE html>
@@ -125,12 +125,8 @@ $mediaValores   = $calculate->calcular($dados);
                          </td>
 
                        <td class="data-grid-td">
-                         <a href="editContratos.php?idcontrato=<?= $dado['idcontrato'] ?>" </a>
-                           <button type="button" class="btn btn-primary" name="btAtualiza" id="idcontrato">Editar</button>
-                       </td>
-                       <td class="data-grid-td">
-                         <a href="deleteContratos.php?idcontrato=<?= $dado['idcontrato'] ?>" </a>
-                           <button type="submit" value="deletar" class="btn btn-danger" name="deletar" >Deletar</button>
+                         <a href="../classes/calculos.class.php?idcontrato=<?= $dado['idcontrato'] ?>" </a>
+                           <button type="submit" value="calcular" class="btn btn-success" name="Calcular" >Calcular</button>
                        </td>
 
                      <?php }  ?>
