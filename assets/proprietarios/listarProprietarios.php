@@ -128,7 +128,7 @@
    </main>
 
    <footer class=" rodape">
-     Adriano S. Belísio © <?= date('Y'); ?>
+       Imobiliárias © <?= date('Y'); ?>
    </footer>
  </body>
 
